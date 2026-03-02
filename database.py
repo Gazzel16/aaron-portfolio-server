@@ -3,6 +3,7 @@ import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 from sqlalchemy.pool import NullPool
+
 load_dotenv()  # <-- Loads your .env
 
 DATABASE_URL = os.getenv("DATABASE_URL")
