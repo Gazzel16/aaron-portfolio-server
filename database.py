@@ -2,7 +2,7 @@ from dotenv import load_dotenv
 import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
-
+from sqlalchemy.pool import NullPool
 load_dotenv()  # <-- Loads your .env
 
 DATABASE_URL = os.getenv("DATABASE_URL")
@@ -12,10 +12,9 @@ if not DATABASE_URL:
 engine = create_engine(
     DATABASE_URL,
     echo=True,  
-    pool_pre_ping=True,
-    pool_recycle=300,   
-    pool_size=5,        
-    max_overflow=10
+    # Since you are using pgbouncer (port 6543), 
+    # it's best to let Supabase handle the pooling.
+    poolclass=NullPool, 
 )
 
 SessionLocal = sessionmaker(bind=engine, autocommit=False, autoflush=False)
