@@ -1,0 +1,33 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# dotenv file (secrets)
+.env
+
+# VS Code / IDE settings
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# MacOS / Linux temp files
+.DS_Store
+*.swp
+*.swo
+
+# Uvicorn / ASGI server files (if any)
+*.db
+*.sqlite3
+
+# Python package distributions
+*.egg-info/
+dist/
+build/
